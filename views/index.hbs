@@ -1,32 +1,4 @@
 <div class="container">
-	<nav>
-		<div class="navLogo">
-			<a href="/"><img src="../static/images/logo.png" /><h1>Video
-					Tutorials</h1></a>
-		</div>
-		{{#if loggedIn}}
-			<div class="navOptions">
-				<a href="/">Home</a>
-				<split>|</split>
-				<a href="/courses">Courses</a>
-				<split>|</split>
-				<a href="/profile">Welcome, {{user.firstName}}</a>
-				<split>|</split>
-				<a href="/logout">Logout</a>
-			</div>
-		{{else}}
-			<div class="navOptions">
-				<a href="/">Home</a>
-				<split>|</split>
-				<a href="/courses">Courses</a>
-				<split>|</split>
-				<a href="/login">Login</a>
-				<split>|</split>
-				<a href="/registration">Register</a>
-			</div>
-		{{/if}}
-	</nav>
-
 	<main>
 		<div id="indexMain" class="indexMain">
 			<img src="../static/images/logo.png" />
@@ -39,7 +11,7 @@
 			</p>
 		</div>
 
-		<h3>Top Courses</h3>
+		<h3>Top Tutorials</h3>
 
 		<div class="container">
 			<div id="{{id}}" class="courses">

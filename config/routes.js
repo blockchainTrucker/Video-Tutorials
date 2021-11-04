@@ -14,20 +14,25 @@ module.exports = (app) => {
 	app.get("/login", function (req, res) {
 		res.render("login");
 	});
-	app.get("/courses", function (req, res) {
+	app.get("/tutorials", function (req, res) {
 		//about page
-		res.render("courses");
+		res.render("tutorials");
 	});
-	app.post("/create/cube", createPOST);
-	app.get("/create/accessory", function (req, res) {
+	app.get("/profile", function (req, res) {
 		//about page
-		res.render("createAccessory");
+		res.render("profile");
 	});
-	app.post("/create/accessory", createAccessoryPOST);
-	app.get("/attach/accessory/:id", attach.get);
-	app.post("/attach/accessory/:id", attach.post);
 
-	app.get("/details/:id", detailsGET);
+	// app.post("/create/cube", createPOST);
+	// app.get("/create/accessory", function (req, res) {
+	// 	//about page
+	// 	res.render("createAccessory");
+	// });
+	// app.post("/create/accessory", createAccessoryPOST);
+	// app.get("/attach/accessory/:id", attach.get);
+	// app.post("/attach/accessory/:id", attach.post);
+
+	// app.get("/details/:id", detailsGET);
 
 	app.get("*", function (req, res) {
 		//404 page

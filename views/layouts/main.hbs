@@ -8,7 +8,42 @@
 	</head>
 
 	<body>
+		<nav>
+			<div class="navLogo">
+				<a href="/"><img src="../static/images/logo.png" /><h1>Video
+						Tutorials</h1></a>
+			</div>
+			<div class="navSpace"></div>
+			{{#if loggedIn}}
+				<div class="navOptions">
+					<a href="/">Home</a>
+					<split>|</split>
+					<a href="/tutorials">Tutorials</a>
+					<split>|</split>
+					<a href="/profile">Welcome, {{user.firstName}}</a>
+					<split>|</split>
+					<a href="/logout">Logout</a>
+				</div>
+			{{else}}
+				<div class="navOptions">
+					<a href="/">Home</a>
+					<split>|</split>
+					<a href="/tutorials">Tutorials</a>
+					<split>|</split>
+					<a href="/login">Login</a>
+					<split>|</split>
+					<a href="/registration">Register</a>
+				</div>
+			{{/if}}
+		</nav>
+
 		{{{body}}}
+
+		<footer>
+			<div>© 2021
+				<a href="/">Express Fundamentals</a>
+			</div>
+		</footer>
 	</body>
 
 </html>
