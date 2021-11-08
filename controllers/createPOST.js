@@ -1,4 +1,6 @@
 const fs = require("fs");
+const tutorial = require("../models/Tutorial");
+const user = require("../models/User");
 
 const VideoTutorial = require("../VideoTutorial.js");
 

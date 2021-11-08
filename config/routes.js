@@ -1,8 +1,8 @@
 const createPOST = require("../controllers/createPOST");
 const tutorialsGET = require("../controllers/tutorialsGET");
 const detailsGET = require("../controllers/detailsGET");
-const mongoose = require("mongoose");
-const Tutorial = require("../models/Tutorial");
+const tutorial = require("../models/Tutorial");
+const user = require("../models/User");
 
 module.exports = (app) => {
 	app.get("/", function (req, res) {
@@ -20,7 +20,7 @@ module.exports = (app) => {
 	app.get("/tutorials", tutorialsGET);
 
 	app.get("/test", function (req, res) {
-		Tutorial.find({}).then((tutorial) => console.log(tutorial));
+		tutorial.find({}).then((tutorial) => console.log(tutorial));
 		res.render("404");
 	});
 

@@ -1,11 +1,22 @@
-const fs = require("fs");
+const tutorial = require("../models/Tutorial");
 
 module.exports = function (req, res) {
-	fs.readFile("./config/database.json", "utf8", (err, data) => {
-		if (err) throw err;
-		let tutorials = JSON.parse(data);
+	tutorial.find({}).then((tutorials) => {
+		// console.log(tutorials);
+		let tutorialArray = tutorials.map((tutorial) => {
+			let subTutorial = {
+				id: tutorial._id,
+				title: tutorial.title,
+				description: tutorial.description,
+				creationDate: tutorial.creationDate,
+				users: tutorial.users,
+				imageURL: tutorial.imageURL,
+			};
+			return subTutorial;
+		});
+		console.log(tutorialArray);
 		let context = {
-			tutorials: tutorials,
+			tutorials: tutorialArray,
 		};
 		res.render("tutorials", context);
 	});
