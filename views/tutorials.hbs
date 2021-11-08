@@ -1,10 +1,13 @@
 <div class="container">
 	<h3>Tutorials</h3>
-	<div id="{{id}}" class="courses">
-		<a href="/details/{{id}}">
-			<img src="../static/images/nodejs.jpg" />
-			<h4>Node.js</h4>
-		</a>
-	</div>
-
+	{{#each tutorials}}
+		<div id="{{id}}" class="courses">
+			<a href="/details/{{id}}">
+				<img src="{{imageURL}}" />
+				<h4>{{title}}</h4>
+			</a>
+		</div>
+	{{else}}
+		<h2>No Tutorials...</h2>
+	{{/each}}
 </div>

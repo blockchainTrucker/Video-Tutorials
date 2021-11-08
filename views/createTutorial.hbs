@@ -1,0 +1,19 @@
+<div class="container">
+	<form method="POST" action="/create-tutorial">
+		<h3>Create a Tutorial</h3>
+		<p id="titleError">Title must be at least 2 characters</p>
+		<input name="title" placeholder="Title" />
+		<p id="descriptionError">Description must be at least 10 characters</p>
+		<input name="description" placeholder="Description" />
+		<p id="videoError">Please enter valid image url</p>
+		<input name="videoURL" placeholder="Video URL" />
+		<p id="imageError">Please enter valid image url</p>
+		<input name="imageURL" placeholder="Image URL" />
+		<div class="create">
+			<input name="public" type="checkbox" checked="true" />
+			<span>Create tutorial as public?</span>
+		</div>
+
+		<button id="regButton">Submit</button>
+	</form>
+</div>
