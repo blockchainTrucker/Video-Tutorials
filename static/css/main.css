@@ -114,10 +114,8 @@ nav {
 	height: auto;
 	text-align: center;
 	margin-top: 0;
-	/* background-color: rgb(219, 219, 219); */
 	box-shadow: 0 0 10px rgb(0, 0, 0, 0.7);
-	border-radius: 5px;
-	min-height: 225px;
+	border-radius: 3px;
 	margin-bottom: 50px;
 	margin-left: 20px;
 	margin-right: 20px;
@@ -125,13 +123,14 @@ nav {
 }
 
 .courses img {
-	margin-top: 20px;
+	margin-top: 12px;
 	width: 275px;
 	height: 150px;
 }
 
 .courses h4 {
-	margin: 10px;
+	margin-top: 20px;
+	margin-bottom: 12px;
 	font-size: 1.5em;
 	color: rgb(0, 0, 0, 0.85);
 }
