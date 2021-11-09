@@ -2,19 +2,19 @@ const tutorial = require("../models/Tutorial");
 
 module.exports = function (req, res) {
 	tutorial.find({}).then((tutorials) => {
-		// console.log(tutorials);
 		let tutorialArray = tutorials.map((tutorial) => {
 			let subTutorial = {
 				id: tutorial._id,
 				title: tutorial.title,
 				description: tutorial.description,
-				creationDate: tutorial.creationDate,
+				createDate: tutorial.creationDate,
 				users: tutorial.users,
 				imageURL: tutorial.imageURL,
+				videoURL: tutorial.videoURL,
 			};
+
 			return subTutorial;
 		});
-		console.log(tutorialArray);
 		let context = {
 			tutorials: tutorialArray,
 		};

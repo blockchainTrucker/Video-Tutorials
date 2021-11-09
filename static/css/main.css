@@ -114,17 +114,18 @@ nav {
 	height: auto;
 	text-align: center;
 	margin-top: 0;
-	border: 2px;
-	padding: 0px;
-	border-radius: 25px;
+	/* background-color: rgb(219, 219, 219); */
+	box-shadow: 0 0 10px rgb(0, 0, 0, 0.7);
+	border-radius: 5px;
 	min-height: 225px;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 	margin-left: 20px;
 	margin-right: 20px;
 	display: inline-block;
 }
 
 .courses img {
+	margin-top: 20px;
 	width: 275px;
 	height: 150px;
 }
@@ -132,6 +133,7 @@ nav {
 .courses h4 {
 	margin: 10px;
 	font-size: 1.5em;
+	color: rgb(0, 0, 0, 0.85);
 }
 
 .courses a button {
@@ -257,21 +259,16 @@ button:hover {
 	font-size: 0.8em;
 }
 
-#details {
+.details {
 	max-width: 525px;
 	height: auto;
-	background-color: rgba(0, 0, 0, 0.7);
 	text-align: center;
 	margin: auto;
-	border: 2px;
 	padding: 10px;
-	border-radius: 25px;
-	min-height: 550px;
 }
 
-#detailsImage {
+.details img {
 	width: 400px;
-	height: 400px;
 	margin-bottom: 20px;
 }
 

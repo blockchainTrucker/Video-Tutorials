@@ -1,28 +1,26 @@
-const fs = require("fs");
 const tutorial = require("../models/Tutorial");
 const user = require("../models/User");
 
-const VideoTutorial = require("../VideoTutorial.js");
-
 module.exports = function (req, res) {
+	console.log(req.body);
 	let fields = req.body;
-	let newTutorial = new VideoTutorial(
-		fields.title,
-		fields.imageURL,
-		fields.videoURL,
-		fields.description,
-		fields.public
-	);
-	fs.readFile("./config/database.json", "utf8", (err, data) => {
-		if (err) throw err;
-		let tutorials = JSON.parse(data);
-		tutorials.push(newTutorial);
-		let json = JSON.stringify(tutorials);
-		fs.writeFile("./config/database.json", json, (err) => {
-			if (err) throw err;
+	new tutorial({
+		title: fields.title,
+		imageURL: fields.imageURL,
+		videoURL: fields.videoURL,
+		description: fields.description,
+		isPublic: fields.isPublic,
+		creationDate: "test",
+	})
+		.save()
+		.then((cube) => {
+			console.log(cube);
+			//console.log(newCube);
+			res.redirect("/");
+		})
+		.catch((err) => {
+			console.log(err);
 		});
-	});
-	res.redirect("/tutorials");
 };
 
 // const Cube = require("../models/Tutorials");
