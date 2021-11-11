@@ -1,6 +1,7 @@
 const createPOST = require("../controllers/createPOST");
 const tutorialsGET = require("../controllers/tutorialsGET");
 const detailsGET = require("../controllers/detailsGET");
+const registrationPOST = require("../controllers/registrationPOST");
 const tutorial = require("../models/Tutorial");
 const user = require("../models/User");
 
@@ -12,6 +13,8 @@ module.exports = (app) => {
 	app.get("/registration", function (req, res) {
 		res.render("registration");
 	});
+
+	app.post("/registration", registrationPOST);
 
 	app.get("/login", function (req, res) {
 		res.render("login");
