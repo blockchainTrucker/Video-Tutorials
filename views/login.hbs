@@ -1,8 +1,13 @@
 <div class="container">
-	<form method="POST" action="#/login">
+	<form method="POST" action="/login">
 		<h3>Sign in</h3>
-		<p id="loginError">Invalid username or password</p>
-		<input name="username" type="text" placeholder="  Username" />
+		<p class="{{loginError}}">{{loginMessage}}</p>
+		<input
+			name="username"
+			type="text"
+			placeholder="  Username"
+			value="{{username}}"
+		/>
 		<input type="password" name="password" placeholder="  Password" />
 		<button>Submit</button>
 	</form>

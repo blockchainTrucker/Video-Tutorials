@@ -104,8 +104,9 @@ nav {
 }
 
 #indexMain {
-	margin-left: 75px;
-	max-width: 775px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 775px;
 	margin-bottom: 50px;
 }
 

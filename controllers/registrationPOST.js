@@ -98,7 +98,7 @@ module.exports = function (req, res) {
 								context.type = "success";
 								context.message =
 									"User created successfully... Please sign in";
-								res.render("login", context);
+								res.redirect("login");
 							})
 							.catch((err) => {
 								console.log(err);

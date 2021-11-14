@@ -1,14 +1,13 @@
+const homeGET = require("../controllers/homeGET");
 const createPOST = require("../controllers/createPOST");
-const tutorialsGET = require("../controllers/tutorialsGET");
 const detailsGET = require("../controllers/detailsGET");
 const registrationPOST = require("../controllers/registrationPOST");
+const loginPOST = require("../controllers/loginPOST");
 const tutorial = require("../models/Tutorial");
 const user = require("../models/User");
 
 module.exports = (app) => {
-	app.get("/", function (req, res) {
-		res.render("index");
-	});
+	app.get("/", homeGET);
 
 	app.get("/registration", function (req, res) {
 		res.render("registration");
@@ -20,7 +19,7 @@ module.exports = (app) => {
 		res.render("login");
 	});
 
-	app.get("/tutorials", tutorialsGET);
+	app.post("/login", loginPOST);
 
 	app.get("/test", function (req, res) {
 		tutorial.find({}).then((tutorial) => console.log(tutorial));

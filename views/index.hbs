@@ -10,31 +10,43 @@
 				It'll Change Your Life
 			</p>
 		</div>
-
-		<h3>Top Tutorials</h3>
-
-		<div class="container">
-			<div class="courses">
-				<a href="/details/6189fb8542e690cb9603ee48">
-					<img src="../static/images/nodejs.jpg" />
-					<h4>Node.js</h4>
-				</a>
+		{{#if loggedIn}}
+			<div class="container">
+				<h3>Tutorials</h3>
+				{{#each tutorials}}
+					<div id="{{_id}}" class="courses">
+						<a href="/details/{{id}}">
+							<img src="{{imageURL}}" />
+							<h4>{{title}}</h4>
+						</a>
+					</div>
+				{{else}}
+					<h2>No Tutorials...</h2>
+				{{/each}}
 			</div>
-			<div class="courses">
-				<a href="/details/618a9a4d429713787e784429">
-					<img src="../static/images/expressjs.jpg" />
-					<h4>Express.js</h4>
-				</a>
+		{{else}}
+			<h3>Top Tutorials</h3>
+			<div class="container">
+				<div class="courses">
+					<a href="/login">
+						<img src="{{tutorial1pic}}" />
+						<h4>{{tutorial1title}}</h4>
+					</a>
+				</div>
+				<div class="courses">
+					<a href="/login">
+						<img src="{{tutorial2pic}}" />
+						<h4>{{tutorial2title}}</h4>
+					</a>
+				</div>
+				<div class="courses">
+					<a href="/login">
+						<img src="{{tutorial3pic}}" />
+						<h4>{{tutorial3title}}</h4>
+					</a>
+				</div>
 			</div>
-			<div class="courses">
-				<a href="/details/618ab3b8429713787e784430">
-					<img src="../static/images/javascript.jpg" />
-					<h4>
-						JavaScript
-					</h4>
-				</a>
-			</div>
-		</div>
-		<a href="/tutorials"><button>SEE MORE</button></a>
+			<a href="/login"><button>SEE MORE</button></a>
+		{{/if}}
 	</main>
 </div>

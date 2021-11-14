@@ -17,8 +17,6 @@
 				<div class="navOptions">
 					<a href="/">Home</a>
 					<split>|</split>
-					<a href="/tutorials">Tutorials</a>
-					<split>|</split>
 					<a href="/profile">Welcome, {{user.firstName}}</a>
 					<split>|</split>
 					<a href="/logout">Logout</a>
@@ -27,17 +25,13 @@
 				<div class="navOptions">
 					<a href="/">Home</a>
 					<split>|</split>
-					<a href="/tutorials">Tutorials</a>
-					<split>|</split>
 					<a href="/login">Login</a>
 					<split>|</split>
 					<a href="/registration">Register</a>
 				</div>
 			{{/if}}
 		</nav>
-		<div id="notifications" class="{{type}}">
-			<p id="notification-message">{{message}}</p>
-		</div>
+
 		{{{body}}}
 
 		<footer>
