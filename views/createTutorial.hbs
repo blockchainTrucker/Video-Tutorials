@@ -1,12 +1,16 @@
 <div class="container">
 	<form method="POST" action="/create-tutorial">
 		<h3>Create a Tutorial</h3>
-		<p id="titleError">Title must be at least 2 characters</p>
-		<input name="title" placeholder="Title" />
-		<p id="descriptionError">Description must be at least 20 characters</p>
-		<input name="description" placeholder="Description" />
-		<p id="imageError">Image url must begin with http:// or https://</p>
-		<input name="imageURL" placeholder="Image URL" />
+		<p class="{{titleError}}">{{titleMessage}}</p>
+		<input name="title" placeholder="Title" value="{{title}}" />
+		<p class="{{descriptionError}}">{{descriptionMessage}}</p>
+		<input
+			name="description"
+			placeholder="Description"
+			value="{{description}}"
+		/>
+		<p class="{{imageError}}">{{imageMessage}}</p>
+		<input name="imageURL" placeholder="Image URL" value="{{imageURL}}" />
 		<div class="create">
 			<input name="isPublic" type="checkbox" checked="true" />
 			<span>Create tutorial as public?</span>

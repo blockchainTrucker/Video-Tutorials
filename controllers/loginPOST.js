@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 const saltConfig = require("../config/config").saltRounds;
 const jwtConfig = require("../config/config").jwt;
 const user = require("../models/User");

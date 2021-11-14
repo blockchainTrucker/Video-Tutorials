@@ -1,8 +1,14 @@
+const cookieParser = require("cookie-parser");
 const tutorial = require("../models/Tutorial");
 
 module.exports = function (req, res) {
+	let user = req.cookies.user;
+	console.log(req.cookies.user);
+	let context = {};
+	if (user) {
+		context.loggedIn = true;
+	}
 	tutorial.find({}).then((tutorials) => {
-		console.log(tutorials);
 		let tutorialArray = tutorials.map((tutorial) => {
 			let subTutorial = {
 				id: tutorial._id,
@@ -18,11 +24,7 @@ module.exports = function (req, res) {
 		tutorialArray = tutorialArray.sort(
 			(a, b) => b.users.length - a.users.length
 		);
-		let tutorial1 = tutorialArray[0];
-		let tutorial2 = tutorialArray[1];
-		let tutorial3 = tutorialArray[2];
 		let context = {
-			loggedIn: true,
 			tutorial1title: tutorialArray[0].title,
 			tutorial1pic: tutorialArray[0].imageURL,
 			tutorial2title: tutorialArray[1].title,

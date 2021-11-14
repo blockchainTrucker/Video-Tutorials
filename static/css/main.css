@@ -225,18 +225,11 @@ button:hover {
 	margin: 0;
 	padding-bottom: 5px;
 }
-.videoError {
-	font-size: 14pt;
-	color: red;
-	margin: 0;
-	padding-bottom: 5px;
-}
 .fnError {
 	font-size: 14pt;
 	color: red;
 	margin: 0;
 	padding-bottom: 5px;
-	display: block;
 }
 .lnError {
 	font-size: 14pt;
@@ -338,53 +331,3 @@ footer {
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
-
-#notifications {
-	margin: 0 auto;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	text-align: center;
-	width: fit-content;
-	padding: 0.5%;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	color: white;
-	border-radius: 5px;
-	font-size: 1.5em;
-}
-
-.error {
-	background: rgb(231, 118, 118);
-}
-
-.success {
-	background: rgb(53, 185, 75);
-}
-.warning {
-	background: rgb(219, 216, 57);
-}
-
-.none {
-	display: none;
-}
-
-/* 
-@-webkit-keyframes fadeOut {
-	from {
-		opacity: 1;
-	}
-
-	to {
-		opacity: 0;
-	}
-}
-
-@keyframes fadeOut {
-	from {
-		opacity: 1;
-	}
-
-	to {
-		opacity: 0;
-	}
-} */
