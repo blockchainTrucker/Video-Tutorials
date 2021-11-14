@@ -1,24 +1,37 @@
 <div class="container">
 	<form method="POST" action="/registration">
 		<h3>Sign up</h3>
-		<p id="fnError">First name must be at least 2 characters</p>
-		<input name="firstName" id="regFirst" placeholder="First name" />
-		<p id="lnError">Last name must be at least 2 characters</p>
-		<input name="lastName" id="regLast" placeholder="Last name" />
-		<p id="usernameError">Username must be at least 3 characters</p>
-		<input name="username" id="regUser" placeholder="Create a username" />
-		<p id="passError">Password must be at least 6 characters</p>
+		<p class="{{fnError}}">{{fnMessage}}</p>
+		<input
+			name="firstName"
+			id="regFirst"
+			placeholder="First name"
+			value="{{firstName}}"
+		/>
+		<p class="{{lnError}}">{{lnMessage}}</p>
+		<input
+			name="lastName"
+			id="regLast"
+			placeholder="Last name"
+			value="{{lastName}}"
+		/>
+		<p class="{{usernameError}}">{{userMessage}}</p>
+		<input
+			name="username"
+			id="regUser"
+			placeholder="Create a username"
+			value="{{username}}"
+		/>
+		<p class="{{passError}}">{{passMessage}}</p>
 		<input
 			name="password"
 			type="password"
-			id="regPass"
 			placeholder="Create a password"
 		/>
-		<p id="passRepError">Passwords do not match</p>
+		<p class="{{passRepError}}">{{passRepMessage}}</p>
 		<input
 			name="passwordRep"
 			type="password"
-			id="passwordRep"
 			placeholder="Repeat password"
 		/>
 		<button id="regButton">Submit</button>
