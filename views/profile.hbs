@@ -5,6 +5,19 @@
 		<p>{{firstName}} {{lastName}}</p>
 		<h4>Username</h4>
 		<p>{{username}}</p>
-		<a href="/create"><button>NEW TUTORIAL</button></a>
+		<a href="/create-tutorial"><button>CREATE A TUTORIAL</button></a>
 	</div>
+</div>
+<div class="container">
+	<h3>My Tutorials</h3>
+	{{#each tutorials}}
+		<div id="{{_id}}" class="courses">
+			<a href="/details/{{id}}">
+				<img src="{{imageURL}}" />
+				<h4>{{title}}</h4>
+			</a>
+		</div>
+	{{else}}
+		<h2>No Tutorials...</h2>
+	{{/each}}
 </div>

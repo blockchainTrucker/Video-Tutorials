@@ -9,8 +9,9 @@ module.exports = function (req, res) {
 		jwtDetails = jwt_decode(jwtToken);
 		context.loggedIn = true;
 		context.firstName = jwtDetails.firstName;
+		context.lastName = jwtDetails.lastName;
+		context.username = jwtDetails.username;
 	}
-
 	tutorial.find({}).then((tutorials) => {
 		let tutorialArray = tutorials.map((tutorial) => {
 			let subTutorial = {
@@ -20,27 +21,23 @@ module.exports = function (req, res) {
 				createDate: tutorial.creationDate,
 				users: tutorial.users,
 				imageURL: tutorial.imageURL,
-				isPublic: tutorial.isPublic,
+				createdBy: tutorial.createdBy,
 			};
 
 			return subTutorial;
 		});
+
 		tutorialArray = tutorialArray.sort(
 			(a, b) => b.users.length - a.users.length
 		);
-		let publicTutorials = [];
+		let userTutorials = [];
 		for (let tutorial of tutorialArray) {
-			if (tutorial.isPublic == "on") {
-				publicTutorials.push(tutorial);
+			if (tutorial.createdBy == jwtDetails.username) {
+				userTutorials.push(tutorial);
 			}
 		}
-		(context.tutorial1title = publicTutorials[0].title),
-			(context.tutorial1pic = publicTutorials[0].imageURL),
-			(context.tutorial2title = publicTutorials[1].title),
-			(context.tutorial2pic = publicTutorials[1].imageURL),
-			(context.tutorial3title = publicTutorials[2].title),
-			(context.tutorial3pic = publicTutorials[2].imageURL),
-			(context.tutorials = publicTutorials),
-			res.render("index", context);
+		context.tutorials = userTutorials;
+
+		res.render("profile", context);
 	});
 };

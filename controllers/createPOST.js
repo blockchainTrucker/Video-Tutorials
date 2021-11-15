@@ -1,17 +1,25 @@
+const jwt_decode = require("jwt-decode");
 const tutorial = require("../models/Tutorial");
 const user = require("../models/User");
 
 module.exports = function (req, res) {
-	let fields = req.body;
 	let context = {};
+	let jwtDetails;
+	let loggedIn;
+	if (req.cookies.user != undefined) {
+		let jwtToken = req.cookies.user;
+		jwtDetails = jwt_decode(jwtToken);
+	}
+	let fields = req.body;
 	context.title = fields.title;
 	context.description = fields.description;
 	context.imageURL = fields.imageURL;
-	if (fields.isPublic != undefined) {
+	console.log(fields.isPublic);
+	if (fields.isPublic == undefined) {
 		fields.isPublic = "off";
 	}
 	fields.creationDate = new Date();
-	let descriptionRegex = new RegExp(/[a-zA-Z0-9.-]{20,}/g);
+	let descriptionRegex = new RegExp(/[\w\W+]{20,}/g);
 	let titleRegex = new RegExp(/[a-zA-Z]{4,20}/);
 	let imageRegex = new RegExp(/^(http|https):\/\//);
 	let titleGood = false;
@@ -28,8 +36,7 @@ module.exports = function (req, res) {
 	}
 	if (!descriptionRegex.test(fields.description)) {
 		context.descriptionError = "descriptionError";
-		context.descriptionMessage =
-			"descriptionDescription must be 20 characters long";
+		context.descriptionMessage = "Description must be 20 characters long";
 		titleGood = false;
 	} else {
 		context.descriptionError = "";
@@ -53,7 +60,7 @@ module.exports = function (req, res) {
 			description: fields.description,
 			isPublic: fields.isPublic,
 			creationDate: fields.creationDate,
-			createdBy: "admin",
+			createdBy: jwtDetails.username,
 		})
 			.save()
 			.then((tutorial) => {

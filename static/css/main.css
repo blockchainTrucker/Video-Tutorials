@@ -257,25 +257,32 @@ button:hover {
 	padding-bottom: 5px;
 }
 
+.profile {
+	text-align: center;
+}
+
 .profile div {
-	width: 200px;
+	width: 400px;
 	height: auto;
 	background-color: rgb(219, 219, 219);
 	text-align: center;
 	margin: auto;
+	margin-bottom: 50px;
 	border: 2px;
 	padding: 10px;
 	border-radius: 3.5px;
-}
-
-.profile {
-	text-align: center;
 }
 
 .profile h4 {
 	margin: 10px;
 	font-size: 1.5em;
 	color: rgb(0, 0, 0, 0.85);
+}
+
+.profile p {
+	margin-top: 5px;
+	margin-bottom: 20px;
+	font-size: 1.25em;
 }
 
 .create {

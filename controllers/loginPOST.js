@@ -7,6 +7,7 @@ const user = require("../models/User");
 
 module.exports = function (req, res) {
 	let username = req.body.username;
+	username = username.toLowerCase();
 	let pass = req.body.password;
 	let context = {};
 	user.findOne({ username })

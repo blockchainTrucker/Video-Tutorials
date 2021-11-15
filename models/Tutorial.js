@@ -7,8 +7,8 @@ const tutorialSchema = new mongoose.Schema({
 	imageURL: { type: String, required: true },
 	isPublic: { type: String, required: true },
 	creationDate: { type: String, required: true },
-	users: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 	createdBy: { type: String, required: true },
+	users: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });
 
 module.exports = mongoose.model("Tutorial", tutorialSchema);

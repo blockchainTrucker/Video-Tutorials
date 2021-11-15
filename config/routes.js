@@ -1,9 +1,12 @@
 const homeGET = require("../controllers/homeGET");
 const createGET = require("../controllers/createGET");
+const profileGET = require("../controllers/profileGET");
 const createPOST = require("../controllers/createPOST");
 const detailsGET = require("../controllers/detailsGET");
+const four0fourGET = require("../controllers/four0fourGET");
 const registrationPOST = require("../controllers/registrationPOST");
 const loginPOST = require("../controllers/loginPOST");
+
 const tutorial = require("../models/Tutorial");
 const user = require("../models/User");
 
@@ -29,9 +32,7 @@ module.exports = (app) => {
 
 	app.get("/details/:id", detailsGET);
 
-	app.get("/profile", function (req, res) {
-		res.render("profile");
-	});
+	app.get("/profile", profileGET);
 
 	app.get("/create-tutorial", createGET);
 
@@ -43,7 +44,5 @@ module.exports = (app) => {
 		res.redirect("/");
 	});
 
-	app.get("*", function (req, res) {
-		res.render("404");
-	});
+	app.get("*", four0fourGET);
 };
