@@ -1,4 +1,5 @@
 const homeGET = require("../controllers/homeGET");
+const createGET = require("../controllers/createGET");
 const createPOST = require("../controllers/createPOST");
 const detailsGET = require("../controllers/detailsGET");
 const registrationPOST = require("../controllers/registrationPOST");
@@ -32,11 +33,15 @@ module.exports = (app) => {
 		res.render("profile");
 	});
 
-	app.get("/create-tutorial", function (req, res) {
-		res.render("createTutorial");
-	});
+	app.get("/create-tutorial", createGET);
 
 	app.post("/create-tutorial", createPOST);
+
+	app.get("/logout", (req, res) => {
+		res.clearCookie("user");
+		res.clearCookie("status");
+		res.redirect("/");
+	});
 
 	app.get("*", function (req, res) {
 		res.render("404");

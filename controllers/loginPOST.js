@@ -13,7 +13,6 @@ module.exports = function (req, res) {
 		.then((user) => {
 			if (user != null) {
 				bcrypt.compare(pass, user.password, (err, result) => {
-					console.log(result);
 					if (result) {
 						res.status(200);
 						let userToken = {
@@ -27,7 +26,6 @@ module.exports = function (req, res) {
 							jwtConfig.secret,
 							jwtConfig.options
 						);
-						console.log(token);
 						res.cookie("user", token);
 						res.cookie("status", {
 							type: "success",

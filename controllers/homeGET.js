@@ -1,13 +1,16 @@
-const cookieParser = require("cookie-parser");
+const jwt_decode = require("jwt-decode");
 const tutorial = require("../models/Tutorial");
 
 module.exports = function (req, res) {
-	let user = req.cookies.user;
-	console.log(req.cookies.user);
 	let context = {};
-	if (user) {
+	let jwtDetails;
+	if (req.cookies.user != undefined) {
+		let jwtToken = req.cookies.user;
+		jwtDetails = jwt_decode(jwtToken);
 		context.loggedIn = true;
+		context.firstName = jwtDetails.firstName;
 	}
+
 	tutorial.find({}).then((tutorials) => {
 		let tutorialArray = tutorials.map((tutorial) => {
 			let subTutorial = {
@@ -24,15 +27,14 @@ module.exports = function (req, res) {
 		tutorialArray = tutorialArray.sort(
 			(a, b) => b.users.length - a.users.length
 		);
-		let context = {
-			tutorial1title: tutorialArray[0].title,
-			tutorial1pic: tutorialArray[0].imageURL,
-			tutorial2title: tutorialArray[1].title,
-			tutorial2pic: tutorialArray[1].imageURL,
-			tutorial3title: tutorialArray[2].title,
-			tutorial3pic: tutorialArray[2].imageURL,
-			tutorials: tutorialArray,
-		};
-		res.render("index", context);
+
+		(context.tutorial1title = tutorialArray[0].title),
+			(context.tutorial1pic = tutorialArray[0].imageURL),
+			(context.tutorial2title = tutorialArray[1].title),
+			(context.tutorial2pic = tutorialArray[1].imageURL),
+			(context.tutorial3title = tutorialArray[2].title),
+			(context.tutorial3pic = tutorialArray[2].imageURL),
+			(context.tutorials = tutorialArray),
+			res.render("index", context);
 	});
 };
