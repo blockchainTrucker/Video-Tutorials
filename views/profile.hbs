@@ -16,6 +16,14 @@
 				<img src="{{imageURL}}" />
 				<h4>{{title}}</h4>
 			</a>
+			<div class="container">
+				<a href="/delete-tutorial/{{id}}"><button
+						id="delete"
+					>DELETE</button></a>
+				<a href="/edit-tutorial/{{id}}"><button
+						id="edit"
+					>EDIT</button></a>
+			</div>
 		</div>
 	{{else}}
 		<h2>No Tutorials...</h2>

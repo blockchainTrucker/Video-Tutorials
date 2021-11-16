@@ -3,14 +3,16 @@ const tutorial = require("../models/Tutorial");
 const user = require("../models/User");
 
 module.exports = function (req, res) {
+	console.log(req);
 	let context = {};
 	let jwtDetails;
 	if (req.cookies.user != undefined) {
 		let jwtToken = req.cookies.user;
 		jwtDetails = jwt_decode(jwtToken);
+		context.loggedIn = true;
 	}
 	let fields = req.body;
-	context.firstName = jwtDetails.firstName;
+	let id = fields.id;
 	context.id = fields.id;
 	context.title = fields.title;
 	context.description = fields.description;
@@ -51,23 +53,25 @@ module.exports = function (req, res) {
 		imageGood = true;
 	}
 	if (titleGood == false || descriptionGood == false || imageGood == false) {
-		res.render("createTutorial", context);
+		res.render("editTutorial", context);
 	} else {
-		new tutorial({
-			title: fields.title,
-			imageURL: fields.imageURL,
-			videoURL: fields.videoURL,
-			description: fields.description,
-			isPublic: fields.isPublic,
-			creationDate: fields.creationDate,
-			createdBy: jwtDetails.username,
-		})
-			.save()
-			.then((tutorial) => {
-				res.redirect("/");
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		tutorial.findById(id).then((tutorial) => {
+			tutorial.title = fields.title;
+			tutorial.description = fields.description;
+			tutorial.imageURL = fields.imageURL;
+			tutorial.isPublic = fields.isPublic;
+			tutorial
+				.save()
+				.then((tutorial) => {
+					res.cookie("status", {
+						type: "success",
+						message: "Update successful",
+					});
+					res.redirect(`/details/${id}`);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		});
 	}
 };

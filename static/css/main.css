@@ -285,6 +285,16 @@ button:hover {
 	font-size: 1.25em;
 }
 
+#delete {
+	margin-top: 10px;
+	margin-right: 25px;
+}
+
+#edit {
+	margin-top: 10px;
+	background-color: rgb(105 161 92);
+}
+
 .create {
 	margin: auto;
 	align-items: center;

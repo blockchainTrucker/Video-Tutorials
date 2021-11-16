@@ -1,0 +1,22 @@
+<div class="container">
+	<form method="POST" action="/edit-tutorial/{{id}}">
+		<h3>Edit Tutorial</h3>
+		<p class="{{titleError}}">{{titleMessage}}</p>
+		<input name="title" placeholder="Title" value="{{title}}" />
+		<p class="{{descriptionError}}">{{descriptionMessage}}</p>
+		<input
+			name="description"
+			placeholder="Description"
+			value="{{description}}"
+		/>
+		<p class="{{imageError}}">{{imageMessage}}</p>
+		<input name="imageURL" placeholder="Image URL" value="{{imageURL}}" />
+		<input style="display: none;" readonly name="id" value="{{id}}" />
+		<div class="create">
+			<input name="isPublic" type="checkbox" checked={{isPublic}} />
+			<span>Create tutorial as public?</span>
+		</div>
+
+		<button id="regButton">SAVE</button>
+	</form>
+</div>
