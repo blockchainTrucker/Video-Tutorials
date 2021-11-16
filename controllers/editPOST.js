@@ -9,6 +9,7 @@ module.exports = function (req, res) {
 		let jwtToken = req.cookies.user;
 		jwtDetails = jwt_decode(jwtToken);
 		context.loggedIn = true;
+		context.firstName = jwtDetails.firstName;
 	}
 	let fields = req.body;
 	let id = fields.id;

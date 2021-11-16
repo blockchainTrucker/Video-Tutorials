@@ -7,6 +7,7 @@ module.exports = function (req, res) {
 	if (req.cookies.user != undefined) {
 		let jwtToken = req.cookies.user;
 		jwtDetails = jwt_decode(jwtToken);
+		context.loggedIn = true;
 	}
 	let fields = req.body;
 	context.firstName = jwtDetails.firstName;
