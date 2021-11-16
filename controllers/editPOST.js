@@ -1,6 +1,5 @@
 const jwt_decode = require("jwt-decode");
 const tutorial = require("../models/Tutorial");
-const user = require("../models/User");
 
 module.exports = function (req, res) {
 	console.log(req);

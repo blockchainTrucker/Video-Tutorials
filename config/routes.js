@@ -10,9 +10,6 @@ const four0fourGET = require("../controllers/four0fourGET");
 const registrationPOST = require("../controllers/registrationPOST");
 const loginPOST = require("../controllers/loginPOST");
 
-const tutorial = require("../models/Tutorial");
-const user = require("../models/User");
-
 module.exports = (app) => {
 	app.get("/", homeGET);
 
@@ -27,11 +24,6 @@ module.exports = (app) => {
 	});
 
 	app.post("/login", loginPOST);
-
-	app.get("/test", function (req, res) {
-		tutorial.find({}).then((tutorial) => console.log(tutorial));
-		res.render("404");
-	});
 
 	app.get("/details/:id", detailsGET);
 
