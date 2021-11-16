@@ -109,6 +109,9 @@ nav {
 	width: 775px;
 	margin-bottom: 50px;
 }
+#lastP {
+	margin-bottom: auto;
+}
 
 .courses {
 	width: 300px;
