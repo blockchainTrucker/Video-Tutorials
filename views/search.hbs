@@ -1,0 +1,13 @@
+<div class="container">
+	<h3>Search Results</h3>
+	{{#each searchResults}}
+		<div id="{{_id}}" class="courses">
+			<a href="/details/{{id}}">
+				<img src="{{imageURL}}" />
+				<h4>{{title}}</h4>
+			</a>
+		</div>
+	{{else}}
+		<h2>Nothing found...</h2>
+	{{/each}}
+</div>

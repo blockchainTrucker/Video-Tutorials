@@ -10,6 +10,7 @@ const editPOST = require("../controllers/editPOST");
 const four0fourGET = require("../controllers/four0fourGET");
 const registrationPOST = require("../controllers/registrationPOST");
 const loginPOST = require("../controllers/loginPOST");
+const searchPOST = require("../controllers/searchPOST");
 
 module.exports = (app) => {
 	app.get("/", homeGET);
@@ -47,6 +48,8 @@ module.exports = (app) => {
 		res.clearCookie("status");
 		res.redirect("/");
 	});
+
+	app.post("/search", searchPOST);
 
 	app.get("*", four0fourGET);
 };

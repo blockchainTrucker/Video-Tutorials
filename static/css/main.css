@@ -80,6 +80,25 @@ nav {
 	color: rgb(148, 31, 60);
 }
 
+.search {
+	margin-left: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.search form {
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+}
+
+.search input {
+	height: 30px;
+	margin: auto;
+	width: auto;
+	padding: 0;
+}
+
 .indexMain div {
 	margin-top: auto;
 	height: auto;
