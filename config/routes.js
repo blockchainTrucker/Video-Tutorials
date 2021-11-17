@@ -4,6 +4,7 @@ const profileGET = require("../controllers/profileGET");
 const createPOST = require("../controllers/createPOST");
 const deletePOST = require("../controllers/deletePOST");
 const detailsGET = require("../controllers/detailsGET");
+const subscriptionPOST = require("../controllers/subscriptionPOST");
 const editGET = require("../controllers/editGET");
 const editPOST = require("../controllers/editPOST");
 const four0fourGET = require("../controllers/four0fourGET");
@@ -26,6 +27,8 @@ module.exports = (app) => {
 	app.post("/login", loginPOST);
 
 	app.get("/details/:id", detailsGET);
+
+	app.post("/details/:id/subscribed", subscriptionPOST);
 
 	app.get("/profile", profileGET);
 

@@ -16,16 +16,18 @@ module.exports = function (req, res) {
 		let date = tutorial.creationDate;
 		date = date.split(" ");
 		tutorial.creationDate = `${date[1]} ${date[2]}, ${date[3]}`;
-		let context = {
-			firstName: jwtDetails.firstName,
-			loggedIn: loggedIn,
-			id: tutorial._id,
-			title: tutorial.title,
-			description: tutorial.description,
-			imageURL: tutorial.imageURL,
-			creationDate: tutorial.creationDate,
-			createdBy: tutorial.createdBy,
-		};
-		res.render("details", context);
+		if (tutorial.users.indexOf(jwtDetails.username) > -1) {
+			context.subscribed = true;
+		}
+
+		(context.firstName = jwtDetails.firstName),
+			(context.loggedIn = loggedIn),
+			(context.id = tutorial._id),
+			(context.title = tutorial.title),
+			(context.description = tutorial.description),
+			(context.imageURL = tutorial.imageURL),
+			(context.creationDate = tutorial.creationDate),
+			(context.createdBy = tutorial.createdBy),
+			res.render("details", context);
 	});
 };

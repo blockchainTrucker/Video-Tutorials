@@ -4,6 +4,15 @@
 		<div>
 			<img src="{{imageURL}}" />
 		</div>
+		<div class="subForm">
+			{{#if subscribed}}
+				<span class="subscribed">Subscribed</span>
+			{{else}}
+				<form method="post" action="/details/{{id}}/subscribed">
+					<button class="subscribe">Click to Subscribe</button>
+				</form>
+			{{/if}}
+		</div>
 		<h2>Details</h2>
 		<p>{{description}}</p>
 		<br />
@@ -11,3 +20,5 @@
 		<p>Added by {{createdBy}} on {{creationDate}}</p>
 	</div>
 </div>
+
+{{!-- class="{{subscription}} --}}
