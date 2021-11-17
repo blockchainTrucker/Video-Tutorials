@@ -64,6 +64,11 @@ module.exports = function (req, res) {
 		})
 			.save()
 			.then((tutorial) => {
+				res.status(201);
+				res.cookie("status", {
+					type: "success",
+					message: "Tutorial created successfully",
+				});
 				res.redirect("/");
 			})
 			.catch((err) => {

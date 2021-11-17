@@ -24,7 +24,7 @@ module.exports = function (req, res) {
 			.then((tutorial) => {
 				res.cookie("status", {
 					type: "success",
-					message: "Subscription successful",
+					message: `Subscription to ${tutorial.title} was successful`,
 				});
 				res.redirect(`/details/${id}`);
 			})

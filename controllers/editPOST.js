@@ -63,9 +63,10 @@ module.exports = function (req, res) {
 			tutorial
 				.save()
 				.then((tutorial) => {
+					res.status(201);
 					res.cookie("status", {
 						type: "success",
-						message: "Update successful",
+						message: "Tutorial edited successfully",
 					});
 					res.redirect(`/details/${id}`);
 				})

@@ -6,7 +6,6 @@ module.exports = function (req, res) {
 	let username = req.body.username.toLowerCase();
 	let firstName = req.body.firstName;
 	let lastName = req.body.lastName;
-	let tutorials;
 	let pass = req.body.password;
 	let rePass = req.body.passwordRep;
 	let context = {};
@@ -86,14 +85,13 @@ module.exports = function (req, res) {
 							lastName: lastName,
 							username: username,
 							password: hash,
-							tutorials: tutorials,
 						})
 							.save()
 							.then((user) => {
 								res.status(201);
 								res.cookie("status", {
 									type: "success",
-									message: "User created!",
+									message: "User created successfully",
 								});
 								context.type = "success";
 								context.message =
