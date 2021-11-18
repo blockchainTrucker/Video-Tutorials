@@ -34,7 +34,6 @@ module.exports = function (req, res) {
 					}
 				}
 				for (let tutorial of tutorialArray) {
-					console.log(searchResults);
 					if (
 						tutorial.title.includes(
 							req.body.search.charAt(0).toUpperCase()
