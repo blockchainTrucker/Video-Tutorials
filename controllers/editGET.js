@@ -24,6 +24,7 @@ module.exports = function (req, res) {
 			imageURL: tutorial.imageURL,
 			creationDate: tutorial.creationDate,
 			createdBy: tutorial.createdBy,
+			videoCode: tutorial.videoCode,
 		};
 		res.render("editTutorial", context);
 	});

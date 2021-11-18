@@ -15,6 +15,7 @@ module.exports = function (req, res) {
 	context.title = fields.title;
 	context.description = fields.description;
 	context.imageURL = fields.imageURL;
+	context.videoCode = fields.videoCode;
 	if (fields.isPublic == undefined) {
 		fields.isPublic = "off";
 	}
@@ -22,9 +23,11 @@ module.exports = function (req, res) {
 	let descriptionRegex = new RegExp(/[\w\W+]{20,}/g);
 	let titleRegex = new RegExp(/[a-zA-Z]{4,20}/);
 	let imageRegex = new RegExp(/^(http|https):\/\//);
+	let videoRegex = new RegExp(/^(https):\/\/youtu\.be/);
 	let titleGood = false;
 	let descriptionGood = false;
 	let imageGood = false;
+	let videoGood = false;
 
 	if (!titleRegex.test(fields.title)) {
 		context.titleError = "titleError";
@@ -50,7 +53,20 @@ module.exports = function (req, res) {
 		context.imageError = "";
 		imageGood = true;
 	}
-	if (titleGood == false || descriptionGood == false || imageGood == false) {
+	if (!videoRegex.test(fields.videoCode)) {
+		context.videoError = "videoError";
+		context.videoMessage = "Video URL must begin with https://youtu.be";
+		videoGood = false;
+	} else {
+		context.imageError = "";
+		videoGood = true;
+	}
+	if (
+		titleGood == false ||
+		descriptionGood == false ||
+		imageGood == false ||
+		videoGood == false
+	) {
 		res.render("createTutorial", context);
 	} else {
 		new tutorial({

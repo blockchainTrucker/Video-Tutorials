@@ -1,3 +1,4 @@
+const jsdom = require("jsdom");
 const jwt_decode = require("jwt-decode");
 const tutorial = require("../models/Tutorial");
 const user = require("../models/User");
@@ -19,7 +20,10 @@ module.exports = function (req, res) {
 		if (tutorial.users.indexOf(jwtDetails.username) > -1) {
 			context.subscribed = true;
 		}
-
+		let videoCode = tutorial.videoCode;
+		videoCodeArray = videoCode.split(".be");
+		videoCodeArray[0] = "https://youtube.com/embed";
+		videoCode = videoCodeArray.join("");
 		(context.firstName = jwtDetails.firstName),
 			(context.loggedIn = loggedIn),
 			(context.id = tutorial._id),
@@ -28,6 +32,7 @@ module.exports = function (req, res) {
 			(context.imageURL = tutorial.imageURL),
 			(context.creationDate = tutorial.creationDate),
 			(context.createdBy = tutorial.createdBy),
-			res.render("details", context);
+			(context.videoCode = videoCode);
+		res.render("details", context);
 	});
 };

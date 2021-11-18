@@ -16,7 +16,17 @@
 		<h2>Details</h2>
 		<p>{{description}}</p>
 		<br />
-		{{videoURL}}
+		{{#if subscribed}}
+			<iframe
+				width="560"
+				height="315"
+				src="{{videoCode}}"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			></iframe>
+		{{/if}}
 		<p>Added by {{createdBy}} on {{creationDate}}</p>
 	</div>
 </div>

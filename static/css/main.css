@@ -236,6 +236,12 @@ button:hover {
 	margin: 0;
 	padding-bottom: 5px;
 }
+.videoError {
+	font-size: 14pt;
+	color: red;
+	margin: 0;
+	padding-bottom: 5px;
+}
 .descriptionError {
 	font-size: 14pt;
 	color: red;
