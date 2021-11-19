@@ -22,15 +22,15 @@ module.exports = function (req, res) {
 		videoCodeArray = videoCode.split(".be");
 		videoCodeArray[0] = "https://youtube.com/embed";
 		videoCode = videoCodeArray.join("");
-		(context.firstName = jwtDetails.firstName),
-			(context.loggedIn = loggedIn),
-			(context.id = tutorial._id),
-			(context.title = tutorial.title),
-			(context.description = tutorial.description),
-			(context.imageURL = tutorial.imageURL),
-			(context.creationDate = tutorial.creationDate),
-			(context.createdBy = tutorial.createdBy),
-			(context.videoCode = videoCode);
+		context.firstName = jwtDetails.firstName;
+		context.loggedIn = loggedIn;
+		context.id = tutorial._id;
+		context.title = tutorial.title;
+		context.description = tutorial.description;
+		context.imageURL = tutorial.imageURL;
+		context.creationDate = tutorial.creationDate;
+		context.createdBy = tutorial.createdBy;
+		context.videoCode = videoCode;
 		res.render("details", context);
 	});
 };
