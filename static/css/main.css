@@ -3,6 +3,9 @@
 body {
 	font-family: "Lato", sans-serif;
 	background-color: rgb(255, 255, 255);
+	min-height: 100vh;
+	margin: 0px;
+	position: relative;
 }
 
 main {
@@ -87,8 +90,8 @@ nav {
 }
 
 .search form {
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
+
 	width: fit-content;
 }
 
@@ -113,20 +116,23 @@ nav {
 .indexMain h2 {
 	width: 100%;
 	margin-bottom: 10px;
+	margin-right: 50px;
 	font-size: 40pt;
 	color: rgb(0, 0, 0, 0.85);
 }
 
 .indexMain p {
 	font-size: 20pt;
-	margin: 0;
+	margin-right: 50px;
+	margin-bottom: 0px;
+	margin-top: 0px;
 	color: rgb(0, 0, 0, 0.7);
 }
 
 #indexMain {
 	margin-left: auto;
 	margin-right: auto;
-	width: 775px;
+	width: 825px;
 	margin-bottom: 50px;
 }
 #lastP {
@@ -168,7 +174,8 @@ form {
 	height: fit-content;
 	background-color: rgb(219, 219, 219);
 	text-align: center;
-	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 50px;
 	border: 2px;
 	padding: 10px;
 	border-radius: 3.5px;
@@ -404,11 +411,12 @@ button:hover {
 }
 
 footer {
+	position: absolute;
 	font-size: 10pt;
 	bottom: 0px;
 	width: 100%;
 	text-align: center;
 	display: inline-block;
-	margin-bottom: 20px;
-	margin-top: 20px;
+	margin-bottom: 5px;
+	margin-top: 50px;
 }
