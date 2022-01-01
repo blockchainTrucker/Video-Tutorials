@@ -8,9 +8,11 @@
 			{{#if subscribed}}
 				<span class="subscribed">Subscribed</span>
 			{{else}}
-				<form method="post" action="/details/{{id}}/subscribed">
-					<button class="subscribe">Click to Subscribe</button>
-				</form>
+				<div class="container">
+					<form method="post" action="/details/{{id}}/subscribed">
+						<button class="subscribe">Click to Subscribe</button>
+					</form>
+				</div>
 			{{/if}}
 		</div>
 		<h2>Details</h2>
