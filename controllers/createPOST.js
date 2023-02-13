@@ -10,6 +10,8 @@ module.exports = function (req, res) {
 		context.loggedIn = true;
 	}
 	let fields = req.body;
+	console.log(fields);
+
 	context.firstName = jwtDetails.firstName;
 	context.id = fields.id;
 	context.title = fields.title;
@@ -72,7 +74,7 @@ module.exports = function (req, res) {
 		new tutorial({
 			title: fields.title,
 			imageURL: fields.imageURL,
-			videoURL: fields.videoURL,
+			videoURL: fields.videoCode,
 			description: fields.description,
 			isPublic: fields.isPublic,
 			creationDate: fields.creationDate,

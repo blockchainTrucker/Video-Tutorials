@@ -8,7 +8,7 @@ const tutorialSchema = new mongoose.Schema({
 	creationDate: { type: String, required: true },
 	createdBy: { type: String, required: true },
 	users: [{ type: String, required: true }],
-	videoCode: { type: String, required: true },
+	videoURL: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Tutorial", tutorialSchema);

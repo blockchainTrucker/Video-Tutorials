@@ -28,26 +28,28 @@
 			</div>
 		{{else}}
 			<h3>Top Tutorials</h3>
-			<div class="container">
-				<div class="courses">
-					<a href="/login">
-						<img src="{{tutorial1pic}}" />
-						<h4>{{tutorial1title}}</h4>
-					</a>
+			{{#if existing}}
+				<div class="container">
+					<div class="courses">
+						<a href="/login">
+							<img src="{{tutorial1pic}}" />
+							<h4>{{tutorial1title}}</h4>
+						</a>
+					</div>
+					<div class="courses">
+						<a href="/login">
+							<img src="{{tutorial2pic}}" />
+							<h4>{{tutorial2title}}</h4>
+						</a>
+					</div>
+					<div class="courses">
+						<a href="/login">
+							<img src="{{tutorial3pic}}" />
+							<h4>{{tutorial3title}}</h4>
+						</a>
+					</div>
 				</div>
-				<div class="courses">
-					<a href="/login">
-						<img src="{{tutorial2pic}}" />
-						<h4>{{tutorial2title}}</h4>
-					</a>
-				</div>
-				<div class="courses">
-					<a href="/login">
-						<img src="{{tutorial3pic}}" />
-						<h4>{{tutorial3title}}</h4>
-					</a>
-				</div>
-			</div>
+			{{/if}}
 		{{/if}}
 	</main>
 </div>

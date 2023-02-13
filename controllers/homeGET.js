@@ -34,13 +34,18 @@ module.exports = function (req, res) {
 				publicTutorials.push(tutorial);
 			}
 		}
+		(context.tutorials = publicTutorials),
+		(context.existing = true),
 		(context.tutorial1title = publicTutorials[0].title),
-			(context.tutorial1pic = publicTutorials[0].imageURL),
-			(context.tutorial2title = publicTutorials[1].title),
-			(context.tutorial2pic = publicTutorials[1].imageURL),
-			(context.tutorial3title = publicTutorials[2].title),
-			(context.tutorial3pic = publicTutorials[2].imageURL),
-			(context.tutorials = publicTutorials),
-			res.render("index", context);
+		(context.tutorial1pic = publicTutorials[0].imageURL),
+		(context.tutorial2title = publicTutorials[1].title),
+		(context.tutorial2pic = publicTutorials[1].imageURL),
+		(context.tutorial3title = publicTutorials[2].title),
+		(context.tutorial3pic = publicTutorials[2].imageURL),		
+		res.render("index", context);
+	}).catch((err) => {
+		console.log(err);
+		(context.existing = false),
+		res.render("index", context);
 	});
 };

@@ -18,8 +18,8 @@ module.exports = function (req, res) {
 		if (tutorial.users.indexOf(jwtDetails.username) > -1) {
 			context.subscribed = true;
 		}
-		let videoCode = tutorial.videoCode;
-		videoCodeArray = videoCode.split(".be");
+		let videoURL = tutorial.videoURL;
+		videoCodeArray = videoURL.split(".be");
 		videoCodeArray[0] = "https://youtube.com/embed";
 		videoCode = videoCodeArray.join("");
 		context.firstName = jwtDetails.firstName;
